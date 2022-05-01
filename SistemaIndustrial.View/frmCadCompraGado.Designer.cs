@@ -279,6 +279,7 @@
             this.btnExcluirCompra.TabIndex = 4;
             this.btnExcluirCompra.Text = "&Excluir";
             this.btnExcluirCompra.UseVisualStyleBackColor = true;
+            this.btnExcluirCompra.Click += new System.EventHandler(this.btnExcluirCompra_Click);
             // 
             // frmCadCompraGado
             // 

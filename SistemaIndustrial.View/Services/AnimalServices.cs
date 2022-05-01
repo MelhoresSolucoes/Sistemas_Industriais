@@ -42,7 +42,7 @@ namespace SistemaIndustrial.View.Services
                 }
             }
         }
-        public static async Task<Animal> GetById(long id)
+        public static async Task<Animal> GetById(int id)
         {
             Uri URI = new Uri(_urlAPI + "/api/Animal?id=" + id);
             using (var client = new HttpClient())

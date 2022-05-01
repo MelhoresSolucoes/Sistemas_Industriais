@@ -54,9 +54,8 @@ namespace SistemaIndustrial.Repositories.Base.Abstractions
             if (entity.Id > 0)
             {
                 var updated = this.set.Update(entity);
-                var gravado = await updated.Context.SaveChangesAsync();
-                var entitySaved =  this.GetById(updated.Entity.Id);
-                return  entitySaved;
+                await updated.Context.SaveChangesAsync();
+                return this.GetById(updated.Entity.Id);
             }
             var added = await this.set.AddAsync(entity);
             await added.Context.SaveChangesAsync();

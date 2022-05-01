@@ -39,5 +39,27 @@ namespace SistemaIndustrial.Controllers
             }
             return Response(result);
         }
+
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                CompraGado result = compraGadoAppService.GetById(id);
+
+                if (result == null)
+                {
+                    return NotFound($"Compra de Gado com o Id = {id} não foi encontrado");
+                }
+
+                compraGadoAppService.Delete(id);
+                return Ok(new { message = "Compra de Gado Excluída" });
+            }
+            catch (Exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    "Erro ao excluir Compra de Gado");
+            }
+        }
     }
 }

@@ -78,7 +78,6 @@ namespace SistemaIndustrial.Services
                 throw ex;
             }
         }
-
         public async Task Delete(int id)
         {
             var result = GetById(id);

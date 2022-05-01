@@ -121,6 +121,8 @@ namespace SistemaIndustrial.View
                 item.IdCompraGado = _compraGado.Id;
                 item.Animal = null;
                 await CompraGadoItemServices.Save(item);
+                item.Animal = await AnimalServices.GetById(item.IdAnimal);
+
             }
         }
         private async Task ListarPecuaristasAsync()
@@ -215,6 +217,22 @@ namespace SistemaIndustrial.View
                 await ListarCompraGadoItemAsync();
             }
         }
+        private async void btnExcluirCompra_Click(object sender, EventArgs e)
+        {
+
+            if (_compraGado == null)
+            {
+                MessageBox.Show("Selecione uma Compra de Gado existente!", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                return;
+            }
+            if (MessageBox.Show("Excluir a compra de gado número " + _compraGado.Id.ToString() + "?", "Excluir", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
+                return;
+
+            await CompraGadoServices.Delete(_compraGado.Id);
+
+            MessageBox.Show("A compra de gado nº " + _compraGado.Id + " foi excluído com sucesso.", "Excluir", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult = DialogResult.OK;
+        }
         private async void btnGravar_Click(object sender, EventArgs e)
         {
             try
@@ -225,7 +243,8 @@ namespace SistemaIndustrial.View
 
                 MessageBox.Show("Compra de gado realizada com sucesso!", "Gravar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                DialogResult = DialogResult.OK;
+                PreencherGrid();
+                //DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -254,7 +273,8 @@ namespace SistemaIndustrial.View
         }
         private void gridItens_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            
+            var x =_listCompraGadoItem;
+
             if ((gridItens.Rows[e.RowIndex].DataBoundItem != null) && (gridItens.Columns[e.ColumnIndex].DataPropertyName.Contains(".")))
             {
                 e.Value = BindProperty(gridItens.Rows[e.RowIndex].DataBoundItem, gridItens.Columns[e.ColumnIndex].DataPropertyName);
@@ -264,6 +284,4 @@ namespace SistemaIndustrial.View
 
 
     }
-
-
 }
