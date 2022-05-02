@@ -209,12 +209,8 @@ namespace SistemaIndustrial.View
                 return;
             }
 
-           
+            Process.Start(@".\SistemaIndustrial.Reports.exe",compragado.Id.ToString());
 
-
-           // Process.Start(@".\SistemaIndustrial.Reports.exe");
-           frmReport telaReport = new frmReport(compragado.Id);
-            telaReport.Show();
         }
 
         #endregion
