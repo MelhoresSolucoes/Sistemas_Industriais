@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsv_SisIndDataSet" targetNamespace="http://tempuri.org/dsv_SisIndDataSet.xsd" xmlns:mstns="http://tempuri.org/dsv_SisIndDataSet.xsd" xmlns="http://tempuri.org/dsv_SisIndDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="dsv_SisIndConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="dsv_SisIndConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.SistemaIndustrial.Reports.Properties.Settings.GlobalReference.Default.dsv_SisIndConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="vwCompraGadoItemTableAdapter" GeneratorDataComponentClassName="vwCompraGadoItemTableAdapter" Name="vwCompraGadoItem" UserDataComponentName="vwCompraGadoItemTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="dsv_SisIndConnectionString (Settings)" DbObjectName="dsv_SisInd.dbo.vwCompraGadoItem" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Id, Descricao, Preco, Quantidade, Total FROM dbo.vwCompraGadoItem</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="Id" DataSetColumn="Id" />
+              <Mapping SourceColumn="Descricao" DataSetColumn="Descricao" />
+              <Mapping SourceColumn="Preco" DataSetColumn="Preco" />
+              <Mapping SourceColumn="Quantidade" DataSetColumn="Quantidade" />
+              <Mapping SourceColumn="Total" DataSetColumn="Total" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsv_SisIndDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_UserDSName="dsv_SisIndDataSet" msprop:Generator_DataSetName="dsv_SisIndDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="vwCompraGadoItem" msprop:Generator_RowEvHandlerName="vwCompraGadoItemRowChangeEventHandler" msprop:Generator_RowDeletedName="vwCompraGadoItemRowDeleted" msprop:Generator_RowDeletingName="vwCompraGadoItemRowDeleting" msprop:Generator_RowEvArgName="vwCompraGadoItemRowChangeEvent" msprop:Generator_TablePropName="vwCompraGadoItem" msprop:Generator_RowChangedName="vwCompraGadoItemRowChanged" msprop:Generator_RowChangingName="vwCompraGadoItemRowChanging" msprop:Generator_TableClassName="vwCompraGadoItemDataTable" msprop:Generator_RowClassName="vwCompraGadoItemRow" msprop:Generator_TableVarName="tablevwCompraGadoItem" msprop:Generator_UserTableName="vwCompraGadoItem">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" msprop:Generator_ColumnPropNameInRow="Id" msprop:Generator_ColumnPropNameInTable="IdColumn" msprop:Generator_ColumnVarNameInTable="columnId" msprop:Generator_UserColumnName="Id" type="xs:int" />
+              <xs:element name="Descricao" msprop:Generator_ColumnPropNameInRow="Descricao" msprop:Generator_ColumnPropNameInTable="DescricaoColumn" msprop:Generator_ColumnVarNameInTable="columnDescricao" msprop:Generator_UserColumnName="Descricao">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Preco" msprop:Generator_ColumnPropNameInRow="Preco" msprop:Generator_ColumnPropNameInTable="PrecoColumn" msprop:Generator_ColumnVarNameInTable="columnPreco" msprop:Generator_UserColumnName="Preco" type="xs:decimal" />
+              <xs:element name="Quantidade" msprop:Generator_ColumnPropNameInRow="Quantidade" msprop:Generator_ColumnPropNameInTable="QuantidadeColumn" msprop:Generator_ColumnVarNameInTable="columnQuantidade" msprop:Generator_UserColumnName="Quantidade" type="xs:int" />
+              <xs:element name="Total" msprop:Generator_ColumnPropNameInRow="Total" msprop:Generator_ColumnPropNameInTable="TotalColumn" msprop:Generator_ColumnVarNameInTable="columnTotal" msprop:Generator_UserColumnName="Total" type="xs:decimal" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

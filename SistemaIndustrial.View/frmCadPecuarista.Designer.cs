@@ -1,4 +1,6 @@
-﻿namespace SistemaIndustrial.View
+﻿using System.Windows.Forms;
+
+namespace SistemaIndustrial.View
 {
     partial class frmCadPecuarista
     {

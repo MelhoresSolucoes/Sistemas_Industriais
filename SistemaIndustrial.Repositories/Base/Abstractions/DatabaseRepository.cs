@@ -33,8 +33,19 @@ namespace SistemaIndustrial.Repositories.Base.Abstractions
 
         public TEntity GetById(int id)
         {
-            var entity = this.set.Where(o => o.Id == id).SingleOrDefault();
-            return entity;
+            TEntity entity;
+
+            try
+            {
+                entity = this.set.Find(id);
+                return entity;
+            }
+            catch (Exception)
+            {
+                entity = this.set.Where(o => o.Id == id).SingleOrDefault();
+                return entity;
+            }
+
         }
 
         public TEntity Save(TEntity entity)

@@ -1,8 +1,18 @@
 using Microsoft.Reporting.WinForms;
+using SistemaIndustrial.Reports;
+using SistemaIndustrial.Reports.Reports;
 using SistemaIndustrial.View.Entities;
 using SistemaIndustrial.View.Services;
+using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Net.Http;
 using System.Reflection;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SistemaIndustrial.View
 {
@@ -140,7 +150,7 @@ namespace SistemaIndustrial.View
         {
             this.Close();
         }
-        private async void frmConsultaCompraGado_Load(object sender, EventArgs e)
+        private void frmConsultaCompraGado_Load(object sender, EventArgs e)
         {
             if (!ValidarParametrosPesquisa())
             {
@@ -199,30 +209,12 @@ namespace SistemaIndustrial.View
                 return;
             }
 
-            //frmReportViewers telaReport = new frmReportViewers(compragado.Id);
-            //telaReport.MdiParent = this.MdiParent;
-            //telaReport.Show();
-
-            var pecuaristaAsync = PecuaristaServices.GetById(compragado.IdPecuarista);
-            compragado.Pecuarista = await pecuaristaAsync;
-
-            var itensCompra = CompraGadoItemServices.GetAll();
-            List<CompraGadoItem> listcompraGadoItens =  (await itensCompra).Where(o => o.IdCompraGado == compragado.Id).ToList();
+           
 
 
-            Stream reportDefinition= new FileStream(".\\ReportCompraGado.rdlc", FileMode.Open);  
-            IEnumerable dataSource = listcompraGadoItens;
-            var parameters = new[] { new ReportParameter("Title", "Relatório de Compra de Gado"),
-                                     new ReportParameter("Id", compragado.Id.ToString()),
-                                     new ReportParameter("DataEntrega", compragado.DataEntrega.ToShortDateString()),
-                                     new ReportParameter("Pecuarista", compragado.Pecuarista.Nome),};
-
-            LocalReport report = new LocalReport();
-            report.LoadReportDefinition(reportDefinition);
-            report.DataSources.Add(new ReportDataSource("source", dataSource));
-            report.SetParameters(parameters);
-            //byte[] pdf = report.Render("PDF");
-            
+           // Process.Start(@".\SistemaIndustrial.Reports.exe");
+           frmReport telaReport = new frmReport(compragado.Id);
+            telaReport.Show();
         }
 
         #endregion

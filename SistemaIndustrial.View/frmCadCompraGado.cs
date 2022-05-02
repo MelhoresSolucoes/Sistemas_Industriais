@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -60,6 +61,10 @@ namespace SistemaIndustrial.View
             }
             return retValue;
         }
+        private void BuscarItemSelecionado()
+        {
+            _compraGadoItemSelecionado = (CompraGadoItem)compraGadoItemBindingSource.Current;
+        }
         private void DefinirToolTip()
         {
             toolTip1.SetToolTip(btnNovo, "Novo Item de Compra  (Ctrl+N)");
@@ -70,40 +75,7 @@ namespace SistemaIndustrial.View
             toolTip1.ToolTipTitle = "";
             toolTip1.IsBalloon = false;
         }
-        private async Task Start()
-        {
-            try
-            {
-
-                DefinirToolTip();
-                await ListarPecuaristasAsync();
-                await ListarCompraGadoItemAsync();
-                ValidarInstancias();
-
-                if (_compraGado == null)
-                    _compraGado = new CompraGado();
-
-                if (_compraGado.Id > 0) //Para alterar Compra
-                {
-                    this.Text += "    CÓDIGO (Id): " + _compraGado.Id;
-                    cboPecuarista.SelectedItem = cboPecuarista.Items.Cast<Pecuarista>()
-                                                                    .Where(x => x.Id == _compraGado.IdPecuarista).FirstOrDefault();
-                    txtDataEntrega.Value = _compraGado.DataEntrega;
-                }
-                else //Para Nova Compra
-                {
-                    this.Text += "    NOVA COMPRA";
-                    txtDataEntrega.Value = DateTime.Now;
-                }
-
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-        private async Task GravarCabecalhoAsync()
+        private async Task<CompraGado> GravarCabecalhoAsync()
         {
             Pecuarista pecuaristaSelecionado = (Pecuarista)cboPecuarista.SelectedItem;
 
@@ -112,7 +84,7 @@ namespace SistemaIndustrial.View
             _compraGado.Total = _listCompraGadoItem.Sum(c => c.Total);
             _compraGado.Pecuarista = null;
 
-            _compraGado = await CompraGadoServices.Save(_compraGado);
+            return _compraGado = await CompraGadoServices.Save(_compraGado);
         }
         private async Task GravarItensAsync()
         {
@@ -120,6 +92,7 @@ namespace SistemaIndustrial.View
             {
                 item.IdCompraGado = _compraGado.Id;
                 item.Animal = null;
+                item.CompraGado = null;
                 await CompraGadoItemServices.Save(item);
                 item.Animal = await AnimalServices.GetById(item.IdAnimal);
 
@@ -182,9 +155,38 @@ namespace SistemaIndustrial.View
                 throw new Exception("Informe pelo menos 1 item de compra!");
             }
         }
-        private void BuscarItemSelecionado()
+        private async Task Start()
         {
-            _compraGadoItemSelecionado = (CompraGadoItem)compraGadoItemBindingSource.Current;
+            try
+            {
+
+                DefinirToolTip();
+                await ListarPecuaristasAsync();
+                await ListarCompraGadoItemAsync();
+                ValidarInstancias();
+
+                if (_compraGado == null)
+                    _compraGado = new CompraGado();
+
+                if (_compraGado.Id > 0) //Para alterar Compra
+                {
+                    this.Text += "    CÓDIGO (Id): " + _compraGado.Id;
+                    cboPecuarista.SelectedItem = cboPecuarista.Items.Cast<Pecuarista>()
+                                                                    .Where(x => x.Id == _compraGado.IdPecuarista).FirstOrDefault();
+                    txtDataEntrega.Value = _compraGado.DataEntrega;
+                }
+                else //Para Nova Compra
+                {
+                    this.Text += "    NOVA COMPRA";
+                    txtDataEntrega.Value = DateTime.Now;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
         #endregion
 
@@ -238,13 +240,20 @@ namespace SistemaIndustrial.View
             try
             {
                 ValidarDados();
-                await GravarCabecalhoAsync ();
-                await GravarItensAsync();
+                var cabecalho = await GravarCabecalhoAsync ();
+                if(cabecalho != null)
+                {
+                    await GravarItensAsync();
+                }
+                else
+                {
+                    throw new Exception("Erro ao gravar Compra Gado (Cabeçalho)");
+                }
 
                 MessageBox.Show("Compra de gado realizada com sucesso!", "Gravar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 PreencherGrid();
-                //DialogResult = DialogResult.OK;
+                DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
