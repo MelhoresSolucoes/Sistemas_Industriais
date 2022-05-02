@@ -1,4 +1,6 @@
-﻿namespace SistemaIndustrial.Reports
+﻿using System.Windows.Forms;
+
+namespace SistemaIndustrial.Reports
 {
     partial class frmReport
     {
@@ -28,11 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            MessageBox.Show("1");
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.SuspendLayout();
             // 
             // reportViewer1
-            // 
+            //
+            MessageBox.Show("2");
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaIndustrial.Reports.Reports.ReportCompraGado.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -43,6 +47,7 @@
             // 
             // frmReport
             // 
+            MessageBox.Show("3");
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 641);
@@ -51,7 +56,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
-
+            MessageBox.Show("4");
         }
 
         #endregion

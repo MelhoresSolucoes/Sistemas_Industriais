@@ -64,16 +64,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>7.18382cm</Width>
+                  <Width>7.05814cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.22949cm</Width>
+                  <Width>5.10381cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.16032cm</Width>
+                  <Width>2.53735cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.22949cm</Width>
+                  <Width>5.10381cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -378,7 +378,7 @@
             </TablixRowHierarchy>
             <DataSetName>dsCompraGado</DataSetName>
             <Top>0.3175cm</Top>
-            <Left>1.28417cm</Left>
+            <Left>0.33167cm</Left>
             <Height>1.2cm</Height>
             <Width>19.80312cm</Width>
             <Style>
@@ -387,8 +387,38 @@
               </Border>
             </Style>
           </Tablix>
+          <Textbox Name="Textbox1">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>=Sum(Fields!Total.Value, "dsCompraGado")</Value>
+                    <Style />
+                  </TextRun>
+                </TextRuns>
+                <Style />
+              </Paragraph>
+            </Paragraphs>
+            <rd:DefaultName>Textbox1</rd:DefaultName>
+            <Top>1.69389cm</Top>
+            <Left>15.41229cm</Left>
+            <Height>0.6cm</Height>
+            <Width>4.7225cm</Width>
+            <ZIndex>1</ZIndex>
+            <Style>
+              <Border>
+                <Style>None</Style>
+              </Border>
+              <PaddingLeft>2pt</PaddingLeft>
+              <PaddingRight>2pt</PaddingRight>
+              <PaddingTop>2pt</PaddingTop>
+              <PaddingBottom>2pt</PaddingBottom>
+            </Style>
+          </Textbox>
         </ReportItems>
-        <Height>5.81847in</Height>
+        <Height>1.07889in</Height>
         <Style>
           <Border>
             <Style>None</Style>
@@ -396,7 +426,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>9.12984in</Width>
+      <Width>8.06734in</Width>
       <Page>
         <PageHeader>
           <Height>3.33939cm</Height>
@@ -437,8 +467,8 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox6</rd:DefaultName>
-              <Top>0.31433cm</Top>
-              <Left>4.55153cm</Left>
+              <Top>0.51689cm</Top>
+              <Left>3.7472cm</Left>
               <Height>1.39375cm</Height>
               <Width>16.53576cm</Width>
               <ZIndex>1</ZIndex>
@@ -456,7 +486,7 @@
               <Top>2.88078cm</Top>
               <Left>0.3175cm</Left>
               <Height>0cm</Height>
-              <Width>21.14021cm</Width>
+              <Width>19.96546cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -480,7 +510,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>2.10439cm</Top>
-              <Left>4.55153cm</Left>
+              <Left>3.91653cm</Left>
               <Height>0.6cm</Height>
               <Width>2.94979cm</Width>
               <ZIndex>3</ZIndex>
@@ -510,7 +540,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>2.10439cm</Top>
-              <Left>9.0026cm</Left>
+              <Left>8.3676cm</Left>
               <Height>0.6cm</Height>
               <Width>2.79104cm</Width>
               <ZIndex>4</ZIndex>
@@ -540,7 +570,7 @@
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
               <Top>2.10439cm</Top>
-              <Left>14.90641cm</Left>
+              <Left>13.95391cm</Left>
               <Height>0.6cm</Height>
               <Width>1.91792cm</Width>
               <ZIndex>5</ZIndex>
@@ -570,7 +600,7 @@
               </Paragraphs>
               <rd:DefaultName>Id</rd:DefaultName>
               <Top>2.10439cm</Top>
-              <Left>7.59621cm</Left>
+              <Left>6.96121cm</Left>
               <Height>0.6cm</Height>
               <Width>1.23cm</Width>
               <ZIndex>6</ZIndex>
@@ -600,7 +630,7 @@
               </Paragraphs>
               <rd:DefaultName>DataEntrega</rd:DefaultName>
               <Top>2.10291cm</Top>
-              <Left>11.86603cm</Left>
+              <Left>11.23103cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>7</ZIndex>
@@ -630,7 +660,7 @@
               </Paragraphs>
               <rd:DefaultName>Pecuarista</rd:DefaultName>
               <Top>2.08703cm</Top>
-              <Left>16.79787cm</Left>
+              <Left>15.84537cm</Left>
               <Height>0.6cm</Height>
               <Width>4.43759cm</Width>
               <ZIndex>8</ZIndex>

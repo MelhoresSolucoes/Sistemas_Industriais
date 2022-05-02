@@ -27,7 +27,6 @@ namespace SistemaIndustrial.Reports
         public frmReport()
         {
             InitializeComponent();
-            _IdCompra = 30;
         }
         public frmReport(int idCompra)
         {
@@ -38,6 +37,7 @@ namespace SistemaIndustrial.Reports
         private void CriarReportCompraGado()
         {
             BuscarCabecalhoCompra();
+            BuscarItensCompra();
 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.ReportEmbeddedResource = "SistemaIndustrial.Reports.Reports.ReportCompraGado.rdlc";
@@ -86,7 +86,7 @@ namespace SistemaIndustrial.Reports
         }
         private bool BuscarItensCompra()
         {
-            string sql = "Select Id,Descricao,Preco,Quantidade,Total from vwCompraGadoItem as C Where C.Id = @IdCompraGado";
+            string sql = "Select Id,Descricao,Preco,Quantidade,Total from vwCompraGadoItem as C Where C.idCompraGado = @IdCompraGado";
 
             using (SqlConnection connection = new SqlConnection(_connectionString))
             {
@@ -103,7 +103,7 @@ namespace SistemaIndustrial.Reports
                 {
                     CompraGadoItemViewModel itemCompra = new CompraGadoItemViewModel();
                     itemCompra.Id = int.Parse(reader["Id"].ToString());
-                    itemCompra.IdCompraGado = int.Parse(reader["IdCompraGado"].ToString());
+                    //itemCompra.IdCompraGado = int.Parse(reader["IdCompraGado"].ToString());
                     itemCompra.Preco = decimal.Parse(reader["Preco"].ToString()); 
                     itemCompra.Descricao = reader["Descricao"].ToString();
                     itemCompra.Total = decimal.Parse(reader["Total"].ToString());
