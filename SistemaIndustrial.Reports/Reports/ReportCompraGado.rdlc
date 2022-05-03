@@ -64,16 +64,16 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>7.05814cm</Width>
+                  <Width>5.65585cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.10381cm</Width>
+                  <Width>4.36298cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.53735cm</Width>
+                  <Width>2.16693cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>5.10381cm</Width>
+                  <Width>4.36298cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -380,7 +380,7 @@
             <Top>0.3175cm</Top>
             <Left>0.33167cm</Left>
             <Height>1.2cm</Height>
-            <Width>19.80312cm</Width>
+            <Width>16.54874cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -395,7 +395,11 @@
                 <TextRuns>
                   <TextRun>
                     <Value>=Sum(Fields!Total.Value, "dsCompraGado")</Value>
-                    <Style />
+                    <Style>
+                      <FontWeight>Bold</FontWeight>
+                      <Format>C2</Format>
+                      <Color>Blue</Color>
+                    </Style>
                   </TextRun>
                 </TextRuns>
                 <Style />
@@ -403,9 +407,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>1.69389cm</Top>
-            <Left>15.41229cm</Left>
+            <Left>12.51743cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.7225cm</Width>
+            <Width>4.36298cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -426,7 +430,7 @@
           </Border>
         </Style>
       </Body>
-      <Width>8.06734in</Width>
+      <Width>6.75484in</Width>
       <Page>
         <PageHeader>
           <Height>3.33939cm</Height>
@@ -439,8 +443,8 @@
               <Sizing>FitProportional</Sizing>
               <Top>0.31433cm</Top>
               <Left>0.3175cm</Left>
-              <Height>2.3202cm</Height>
-              <Width>4.09292cm</Width>
+              <Height>2.02916cm</Height>
+              <Width>3.25331cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
@@ -470,7 +474,7 @@
               <Top>0.51689cm</Top>
               <Left>3.7472cm</Left>
               <Height>1.39375cm</Height>
-              <Width>16.53576cm</Width>
+              <Width>13.13321cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -486,7 +490,7 @@
               <Top>2.88078cm</Top>
               <Left>0.3175cm</Left>
               <Height>0cm</Height>
-              <Width>19.96546cm</Width>
+              <Width>16.56291cm</Width>
               <ZIndex>2</ZIndex>
               <Style>
                 <Border>
@@ -502,15 +506,17 @@
                   <TextRuns>
                     <TextRun>
                       <Value>ID (Cód. Compra):</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>2.10439cm</Top>
-              <Left>3.91653cm</Left>
+              <Top>2.42189cm</Top>
+              <Left>0.635cm</Left>
               <Height>0.6cm</Height>
               <Width>2.94979cm</Width>
               <ZIndex>3</ZIndex>
@@ -532,15 +538,17 @@
                   <TextRuns>
                     <TextRun>
                       <Value>Data de Entrega:</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>2.10439cm</Top>
-              <Left>8.3676cm</Left>
+              <Top>2.42189cm</Top>
+              <Left>5.1926cm</Left>
               <Height>0.6cm</Height>
               <Width>2.79104cm</Width>
               <ZIndex>4</ZIndex>
@@ -562,15 +570,17 @@
                   <TextRuns>
                     <TextRun>
                       <Value>Pecuarista:</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox4</rd:DefaultName>
-              <Top>2.10439cm</Top>
-              <Left>13.95391cm</Left>
+              <Top>2.42189cm</Top>
+              <Left>10.46141cm</Left>
               <Height>0.6cm</Height>
               <Width>1.91792cm</Width>
               <ZIndex>5</ZIndex>
@@ -592,15 +602,18 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!Id.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Id</rd:DefaultName>
-              <Top>2.10439cm</Top>
-              <Left>6.96121cm</Left>
+              <Top>2.42189cm</Top>
+              <Left>3.44225cm</Left>
               <Height>0.6cm</Height>
               <Width>1.23cm</Width>
               <ZIndex>6</ZIndex>
@@ -622,15 +635,18 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!DataEntrega.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>DataEntrega</rd:DefaultName>
-              <Top>2.10291cm</Top>
-              <Left>11.23103cm</Left>
+              <Top>2.42041cm</Top>
+              <Left>7.73853cm</Left>
               <Height>0.6cm</Height>
               <Width>2.5cm</Width>
               <ZIndex>7</ZIndex>
@@ -652,15 +668,18 @@
                   <TextRuns>
                     <TextRun>
                       <Value>=Parameters!Pecuarista.Value</Value>
-                      <Style />
+                      <Style>
+                        <FontSize>9pt</FontSize>
+                        <FontWeight>Bold</FontWeight>
+                      </Style>
                     </TextRun>
                   </TextRuns>
                   <Style />
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Pecuarista</rd:DefaultName>
-              <Top>2.08703cm</Top>
-              <Left>15.84537cm</Left>
+              <Top>2.40453cm</Top>
+              <Left>12.35287cm</Left>
               <Height>0.6cm</Height>
               <Width>4.43759cm</Width>
               <ZIndex>8</ZIndex>

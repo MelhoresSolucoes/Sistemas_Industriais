@@ -88,6 +88,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsv_SisIndDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dsv_SisIndDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsv_SisIndDataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Entities\CompraGadoViewModel.cs" />
     <Compile Include="Entities\CompraGadoItemViewModel.cs" />
     <Compile Include="frmReport.cs">
@@ -125,6 +130,17 @@
     </None>
     <None Include="dsv_SisIndDataSet.xss">
       <DependentUpon>dsv_SisIndDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="dsv_SisIndDataSet1.xsc">
+      <DependentUpon>dsv_SisIndDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="dsv_SisIndDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsv_SisIndDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="dsv_SisIndDataSet1.xss">
+      <DependentUpon>dsv_SisIndDataSet1.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\SistemaIndustrial.View.Entities.CompraGadoItemViewModel.datasource" />
